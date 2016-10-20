@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E96B788D-DAFB-420A-9758-7D9A5213B51A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TamTam.Business</RootNamespace>
+    <AssemblyName>TamTam.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DryIoc, Version=2.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.8.3\lib\net45\DryIoc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OMDb\BMovie.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registry.cs" />
+    <Compile Include="TamTam\BAggregatedObject.cs" />
+    <Compile Include="YouTube\BVideo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TamTam.Interfaces.Business\TamTam.Interfaces.Business.csproj">
+      <Project>{af4ae1f4-ea75-4315-a7df-2f7db3a08f9a}</Project>
+      <Name>TamTam.Interfaces.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TamTam.Interfaces.IoCRegister\TamTam.Interfaces.IoCRegister.csproj">
+      <Project>{33fc9040-64d0-4476-8c62-084a2d3be21b}</Project>
+      <Name>TamTam.Interfaces.IoCRegister</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TamTam.IoCContainer\TamTam.IoCContainer.csproj">
+      <Project>{23cf57e4-f4d5-4ee4-9e24-59eaeb225ea8}</Project>
+      <Name>TamTam.IoCContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TamTam.Models\TamTam.Models.csproj">
+      <Project>{9b34ec0c-826c-4b3b-b979-1d4b50099157}</Project>
+      <Name>TamTam.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TamTam.Utils\TamTam.Utils.csproj">
+      <Project>{0443f2c6-8aaf-4060-a658-bdde6dbbb329}</Project>
+      <Name>TamTam.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
